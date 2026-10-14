@@ -23,10 +23,10 @@ bool SetsOverlap(std::unordered_set<uint32> const& left, std::unordered_set<uint
     if (left.empty() || right.empty())
         return false;
 
-    auto const& small = left.size() <= right.size() ? left : right;
+    auto const& smaller = left.size() <= right.size() ? left : right;
     auto const& big = left.size() <= right.size() ? right : left;
 
-    for (uint32 value : small)
+    for (uint32 value : smaller)
         if (big.count(value) != 0)
             return true;
 
